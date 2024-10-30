@@ -1,21 +1,24 @@
 const posts = [];
 
-const postRepository = {
+export const postRepository = {
     save: async (post) => {
         posts.push(post);
         return post;
     },
-    findAll: async () => {
+    findAll: async ({ limit, offset }) => {
         return posts;
     },
     find: async (postID) => {
-        return posts.find(post => post.id === postID);
+        const post = posts.find(post => post.id == postID);
+        return post;
     },
     delete: async (postID) => {
         arrIDX = posts.findIndex(post => post.id === postID);
-        return posts.splice(arrIDX, 1);
+        const deletedPost = posts.splice(arrIDX, 1);
+        return deletedPost;
     },
     deleteAll: async () => {
-        return posts.splice(0, posts.length);
+        const deletedPosts = posts.splice(0, posts.length);
+        return deletedPosts;
     }
 };

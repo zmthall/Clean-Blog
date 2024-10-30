@@ -5,9 +5,17 @@
   "description": "```\r Clean Architecture Blog\r ├─ Blog Backend\r │  ├─ controllers\r │  │  └─ postController.js\r │  ├─ entities\r │  │  └─ post.js\r │  ├─ frameworks\r │  ├─ index.js\r │  ├─ routes\r │  │  └─ postRoutes.js\r │  └─ use-cases\r │     ├─ addPost.js\r │     ├─ deleteAllPosts.js\r │     ├─ deletePost.js\r │     ├─ editPost.js\r │     ├─ getAllPosts.js\r │     └─ getPost.js\r ├─ package.json\r └─ utility\r    ├─ error.js\r    └─ log.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon './Blog Backend/index.js'"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
 }

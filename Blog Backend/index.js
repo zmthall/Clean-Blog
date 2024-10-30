@@ -1,31 +1,15 @@
-import { successResponse } from "./utility/response.js"
+import express from 'express';
+import router from './routes/postRoutes.js';
+import 'dotenv/config';
 
-const test = 
-    [
-        {
-            id: 2341224,
-    title: 'testing',
-    author: 'post.author',
-    body: 'post.body',
-    date: 'post.date',
-    tags: ['post.tags']
-        },
-        {
-            id: 234114,
-    title: 'testing',
-    author: 'post.author',
-    body: 'post.body',
-    date: 'post.date',
-    tags: ['post.tags']
-        },
-        {
-            id: 2341264,
-            title: 'testing',
-            author: 'post.author',
-            body: 'post.body',
-            date: 'post.date',
-            tags: ['post.tags']
-        }
-    ];
+const app = express();
+const port = process.env.PORT;
 
-console.log(test.find(post => post.id === 2341264))
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use(router);
+
+app.listen(port, (req, res) => {
+    console.log(`Listening on port: ${port}`);
+})
