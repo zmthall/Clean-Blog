@@ -3,7 +3,7 @@ import { successResponse } from "./utility/response.js"
 const test = 
     [
         {
-            id: 2341234,
+            id: 2341224,
     title: 'testing',
     author: 'post.author',
     body: 'post.body',
@@ -11,7 +11,7 @@ const test =
     tags: ['post.tags']
         },
         {
-            id: 2341234,
+            id: 234114,
     title: 'testing',
     author: 'post.author',
     body: 'post.body',
@@ -19,7 +19,7 @@ const test =
     tags: ['post.tags']
         },
         {
-            id: 2341234,
+            id: 2341264,
             title: 'testing',
             author: 'post.author',
             body: 'post.body',
@@ -28,4 +28,4 @@ const test =
         }
     ];
 
-console.log(successResponse(test))
+console.log(test.find(post => post.id === 2341264))

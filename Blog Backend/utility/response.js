@@ -1,4 +1,6 @@
 export function successResponse(data) {
+
+    // Success Response that can handle both singular objects and an array of objects.
     if(Array.isArray(data)) {
         return {
             success: true,
@@ -8,7 +10,7 @@ export function successResponse(data) {
                 author: post.author,
                 body: post.body,
                 date: post.date,
-                tags: post.tags
+                tags: post.tags || [] // defaults to empty array if undefined.
             }))
         }
     } else {
@@ -20,7 +22,7 @@ export function successResponse(data) {
                 author: data.author,
                 body: data.body,
                 date: data.date,
-                tags: data.tags
+                tags: data.tags || [] // defaults to empty array if undefined.
             }
         }
     }
