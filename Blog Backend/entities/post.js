@@ -18,14 +18,25 @@ class post {
         }
 
         this.date = this.postDate();
-        this.ID = this.postDate();
+        this.ID = this.postID();
     }
 
     postDate() {
+        const date = new Date();
+        const options = {
+        weekday: 'long', 
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric', 
+        hourCycle: 'h24'};
 
+        return date.toLocaleString('en-US', options);
     }
 
-    postID() {
-
+    postID(min = 100000, max = 999999) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }
