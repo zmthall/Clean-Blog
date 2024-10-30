@@ -1,6 +1,7 @@
 {
   "name": "clean-architecture-blog",
   "version": "1.0.0",
+  "type": "module",
   "description": "```\r Clean Architecture Blog\r ├─ Blog Backend\r │  ├─ controllers\r │  │  └─ postController.js\r │  ├─ entities\r │  │  └─ post.js\r │  ├─ frameworks\r │  ├─ index.js\r │  ├─ routes\r │  │  └─ postRoutes.js\r │  └─ use-cases\r │     ├─ addPost.js\r │     ├─ deleteAllPosts.js\r │     ├─ deletePost.js\r │     ├─ editPost.js\r │     ├─ getAllPosts.js\r │     └─ getPost.js\r ├─ package.json\r └─ utility\r    ├─ error.js\r    └─ log.js",
   "main": "index.js",
   "scripts": {

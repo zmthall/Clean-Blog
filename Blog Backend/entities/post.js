@@ -12,7 +12,7 @@ export class Post {
         if(this.validateTags(tags)) this.tags = tags;        
 
         this.date = new Date();
-        this.ID = Math.floor(Math.random() * (max - min + 1)) + min;
+        this.id = Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     validateTitle(title) {

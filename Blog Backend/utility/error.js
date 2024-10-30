@@ -7,9 +7,10 @@ export class ValidationError extends Error {
 }
 
 export class UseCaseError extends Error {
-    constructor(message) {
+    constructor(message, status, error = null) {
         super(message);
         this.name = 'UseCaseError';
-        this.status = 400;
+        this.status = status;
+        this.error = error;
     }
 }
