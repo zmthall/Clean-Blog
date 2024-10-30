@@ -2,15 +2,6 @@ import { ValidationError } from "../utility/error.js";
 
 export class Post {
     constructor({title, author, body, tags = []}) {
-        const options = {
-            weekday: 'long', 
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric', 
-            hour: 'numeric', 
-            minute: 'numeric', 
-            second: 'numeric', 
-            hourCycle: 'h24'};
         const min = 100000;
         const max = 999999;
 
@@ -20,7 +11,7 @@ export class Post {
 
         if(this.validateTags(tags)) this.tags = tags;        
 
-        this.date = new Date().toLocaleDateString('en-US', options);
+        this.date = new Date();
         this.ID = Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
@@ -36,7 +27,7 @@ export class Post {
         if(typeof author === 'string' && author.length <= 100) {
             return true;
         } else {
-            throw new ValidationError('Author must be a string with a maximum length of 100 characters.')
+            throw new ValidationError('Author must be a string with a maximum length of 100 characters.');
         }
     }
 
@@ -44,15 +35,30 @@ export class Post {
         if(typeof body === 'string' && body.length <= 10000) {
             return true;
         } else {
-            throw new ValidationError('Body must be a string with a maximum length of 10000 characters.')
+            throw new ValidationError('Body must be a string with a maximum length of 10000 characters.');
         }
     }
 
     validateTags(tags) {
-        if(Array.isArray(tags) && tags.every(tag => typeof tag === 'string' && tag.length <= 10)) {
+        if(Array.isArray(tags) && tags.every(tag => typeof tag === 'string' && tag.length <= 10) || tags.length === 0) {
             return true;
         } else {
             throw new ValidationError('Tags must be an array where all array items must be a string with maximum lengths of 10 characters.');
         }
+    }
+
+    edit({title = null, author = null, body = null, tags = []}) {
+        const newPost = new Post({
+            title: title || this.title,
+            author: author || this.author,
+            body: body || this.body,
+            tags: tags.length > 0 ? tags : this.tags
+        });
+
+        newPost.ID = this.ID;
+        newPost.creator = this.creator;
+        newPost.date = this.date;
+
+        return Object.freeze(newPost);
     }
 }
