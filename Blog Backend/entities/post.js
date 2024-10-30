@@ -16,5 +16,16 @@ class post {
         if(Array.isArray(tags) && tags.every(tag => typeof tag === 'string' && tag.length <= 10)) {
             this.tags = tags;
         }
+
+        this.date = this.postDate();
+        this.ID = this.postDate();
+    }
+
+    postDate() {
+
+    }
+
+    postID() {
+
     }
 }
