@@ -4,6 +4,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
     return {
         addPost: async (req, res) => {
             const { title, author, body, tags = [] } = req.body;
+            const { api_key } = req.headers
             try {
                 if(api_key === process.env.API_KEY) {
                     const post = await addPost(title, author, body, tags);
@@ -18,6 +19,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
         },
         getPost: async (req, res) => {
             const { postID } = req.params;
+            const { api_key } = req.headers
             try {
                 if(api_key === process.env.API_KEY) {
                     const post = await getPost(postID); 
@@ -46,6 +48,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
         },
         editPost: async (req, res) => {
             const { postID } = req.params;
+            const { api_key } = req.headers
             try {
                 if(api_key === process.env.API_KEY) {
                     const post = await editPost(postID, req.body);
@@ -60,6 +63,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
         },
         deletePost: async (req, res) => {
             const { postID } = req.params;
+            const { api_key } = req.headers
             try {
                 if(api_key === process.env.API_KEY) {
                     const post = await deletePost(postID);
@@ -73,6 +77,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
             }
         },
         deleteAllPosts: async (req, res) => {
+            const { api_key } = req.headers
             try {
                 if(api_key === process.env.API_KEY) {
                     const posts = await deleteAllPosts();
