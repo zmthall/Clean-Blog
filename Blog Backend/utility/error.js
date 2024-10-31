@@ -14,3 +14,12 @@ export class UseCaseError extends Error {
         this.error = error;
     }
 }
+
+export class ControllerError extends Error {
+    constructor(message, status, error = null) {
+        super(message);
+        this.name = 'ControllerError';
+        this.status = status;
+        this.error = error;
+    }
+}
