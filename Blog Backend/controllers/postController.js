@@ -14,7 +14,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
                 }
             } catch (error) {
                 console.error(error);
-                res.status(500).json({ success: false, data: error.message });
+                res.status(error.status).json({ success: false, data: error.message });
             }
         },
         getPost: async (req, res) => {
@@ -29,7 +29,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
                 }
             } catch (error) {
                 console.error(error);
-                res.status(500).json({ success: false, data: error.message });
+                res.status(error.status).json({ success: false, data: error.message });
             }
         },
         getAllPosts: async (req, res) => {
@@ -43,7 +43,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
                 }
             } catch (error) {
                 console.log(error)
-                res.status(500).json({ success: false, data: error.message });
+                res.status(error.status).json({ success: false, data: error.message });
             }
         },
         editPost: async (req, res) => {
@@ -58,7 +58,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
                 }
             } catch (error) {
                 console.error(error)
-                res.status(500).json({ success: false, data: error.message });
+                res.status(error.status).json({ success: false, data: error.message });
             }
         },
         deletePost: async (req, res) => {
@@ -73,7 +73,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
                 }
             } catch (error) {
                 console.error(error);
-                res.status(500).json({ success: false, data: error.message });
+                res.status(error.status).json({ success: false, data: error.message });
             }
         },
         deleteAllPosts: async (req, res) => {
@@ -87,7 +87,7 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
                 }
             } catch (error) {
                 console.error(error);
-                res.status(500).json({ success: false, data: error.message });
+                res.status(error.status).json({ success: false, data: error.message });
             }
         }
     }
