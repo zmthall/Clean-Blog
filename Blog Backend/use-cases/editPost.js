@@ -9,16 +9,13 @@ function makeEditPost({ postRepository }) {
             if(!isValidPostID(postID))
                 throw new UseCaseError(`Invalid postID [${postID}].`, 400);
 
-            const oldPost = await postRepository.find(postID);
-
-            if (!oldPost) {
+            const editedPost = await postRepository.edit(postID, newData);
+            
+            if (!editedPost) {
                 throw new UseCaseError(`Post with postID [${postID}] not found.`, 404);
             }
-    
-            const editedPost = oldPost.edit(newData);
-            await postRepository.save(editedPost);
-    
-            return successResponse(editPost);
+            
+            return successResponse(editedPost);
         } catch(error) {
             throw new UseCaseError(`Error editing post.`, 500, error);
         }

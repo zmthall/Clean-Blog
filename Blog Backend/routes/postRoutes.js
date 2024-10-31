@@ -29,5 +29,6 @@ const router = express.Router();
 router.post('/post', postController.addPost);
 router.get('/post/:postID', postController.getPost);
 router.get('/posts', postController.getAllPosts);
+router.put('/post/:postID', postController.editPost);
 
 export default router;

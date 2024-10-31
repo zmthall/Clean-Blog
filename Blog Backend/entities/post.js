@@ -55,7 +55,7 @@ export class Post {
             tags: tags.length > 0 ? tags : this.tags
         });
 
-        newPost.ID = this.ID;
+        newPost.id = this.id;
         newPost.creator = this.creator;
         newPost.date = this.date;
 

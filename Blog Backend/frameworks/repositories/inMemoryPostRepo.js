@@ -5,6 +5,13 @@ export const postRepository = {
         posts.push(post);
         return post;
     },
+    edit: async (postID, newData) => {
+        const editIDX = posts.findIndex(post => post.id == postID)
+        const post = posts[editIDX];
+        posts[editIDX] = post.edit(newData);
+
+        return posts[editIDX];
+    },
     findAll: async ({ limit, offset }) => {
         return posts;
     },

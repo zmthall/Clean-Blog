@@ -28,8 +28,15 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
                 res.status(500).json({ success: false, data: error });
             }
         },
-        editPosts: async (req, res) => {
-
+        editPost: async (req, res) => {
+            const { postID } = req.params;
+            try {
+                const post = await editPost(postID, req.body);
+                res.status(200).json(post);
+            } catch (error) {
+                console.error(error)
+                res.status(500).json({ success: false, data: error });
+            }
         },
         deletePost: async (req, res) => {
 
