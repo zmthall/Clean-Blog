@@ -1,4 +1,4 @@
-export function makePostController({ addPost, getPost, getAllPosts, editPost, deletePost, deletePosts }) {
+export function makePostController({ addPost, getPost, getAllPosts, editPost, deletePost, deleteAllPosts }) {
     return {
         addPost: async (req, res) => {
             const { title, author, body, tags = [] } = req.body;
@@ -39,10 +39,23 @@ export function makePostController({ addPost, getPost, getAllPosts, editPost, de
             }
         },
         deletePost: async (req, res) => {
-
+            const { postID } = req.params;
+            try {
+                const post = await deletePost(postID);
+                res.status(200).json(post);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ success: false, data: error });
+            }
         },
-        deletePosts: async (req, res) => {
-
+        deleteAllPosts: async (req, res) => {
+            try {
+                const posts = await deleteAllPosts();
+                res.status(200).json(posts);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ success: false, data: error });
+            }
         }
     }
 }

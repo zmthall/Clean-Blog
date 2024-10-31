@@ -30,5 +30,7 @@ router.post('/post', postController.addPost);
 router.get('/post/:postID', postController.getPost);
 router.get('/posts', postController.getAllPosts);
 router.put('/post/:postID', postController.editPost);
+router.delete('/post/:postID', postController.deletePost);
+router.delete('/posts', postController.deleteAllPosts);
 
 export default router;

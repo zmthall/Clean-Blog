@@ -20,8 +20,8 @@ export const postRepository = {
         return post;
     },
     delete: async (postID) => {
-        arrIDX = posts.findIndex(post => post.id === postID);
-        const deletedPost = posts.splice(arrIDX, 1);
+        const deleteIDX = posts.findIndex(post => post.id === postID);
+        const deletedPost = posts.splice(deleteIDX, 1);
         return deletedPost;
     },
     deleteAll: async () => {
