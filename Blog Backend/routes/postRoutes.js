@@ -25,12 +25,15 @@ const postController = makePostController({ addPost, getPost, getAllPosts, editP
 
 const router = express.Router();
 
+// Routing Middleware
+import { apiAuth } from '../../middleware/apiAuth.js';
+
 // Defining/Registering Routes
-router.post('/post', postController.addPost);
-router.get('/post/:postID', postController.getPost);
-router.get('/posts', postController.getAllPosts);
-router.put('/post/:postID', postController.editPost);
-router.delete('/post/:postID', postController.deletePost);
-router.delete('/posts', postController.deleteAllPosts);
+router.post('/post', apiAuth, postController.addPost);
+router.get('/post/:postID', apiAuth, postController.getPost);
+router.get('/posts', apiAuth, postController.getAllPosts);
+router.put('/post/:postID', apiAuth, postController.editPost);
+router.delete('/post/:postID', apiAuth, postController.deletePost);
+router.delete('/posts', apiAuth, postController.deleteAllPosts);
 
 export default router;
