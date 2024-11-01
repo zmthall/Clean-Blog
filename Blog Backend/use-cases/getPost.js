@@ -1,7 +1,5 @@
-import { Post } from "../entities/post.js"
 import { UseCaseError } from "../utility/error.js";
 import { isValidPostID } from "../utility/validation.js";
-import { successResponse } from "../utility/response.js";
 
 function makeGetPost({ postRepository }) {
     return async function getPost(postID) {
@@ -15,7 +13,7 @@ function makeGetPost({ postRepository }) {
                 throw new UseCaseError(`Post with postID [${postID}] not found.`, 404);
             }
 
-            return successResponse(post);
+            return post;
         } catch(error) {
             throw new UseCaseError(`Error fetching post.`, 500, error);
         }

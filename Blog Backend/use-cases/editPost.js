@@ -1,6 +1,4 @@
-import { Post } from "../entities/post.js"
 import { UseCaseError } from "../utility/error.js";
-import { successResponse } from "../utility/response.js";
 import { isValidPostID } from "../utility/validation.js";
 
 function makeEditPost({ postRepository }) {
@@ -15,7 +13,7 @@ function makeEditPost({ postRepository }) {
                 throw new UseCaseError(`Post with postID [${postID}] not found.`, 404);
             }
             
-            return successResponse(editedPost);
+            return editedPost;
         } catch(error) {
             throw new UseCaseError(`Error editing post.`, 500, error);
         }
