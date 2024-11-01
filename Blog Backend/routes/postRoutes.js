@@ -25,10 +25,13 @@ import { makePostController } from '../controllers/postController.js';
 const postController = makePostController({ addPost, getPost, getAllPosts, editPost, deletePost, deleteAllPosts });
 
 const router = express.Router();
-router.use(logger);
 
 // Routing Middleware
 import { apiAuth } from '../../middleware/apiAuth.js'; // Used to verify/authorize api_key
+import apiLimiter from '../../middleware/apiLimit.js';
+
+router.use(logger);
+router.use(apiLimiter);
 
 // Defining/Registering Routes
 router.post('/post', apiAuth, postController.addPost);
