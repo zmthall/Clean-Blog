@@ -1,4 +1,5 @@
 import express from 'express';
+import { logger } from '../../middleware/logger.js';
 
 // infrastructure layer
 import { postRepository } from '../frameworks/repositories/inMemoryPostRepo.js';
@@ -24,9 +25,10 @@ import { makePostController } from '../controllers/postController.js';
 const postController = makePostController({ addPost, getPost, getAllPosts, editPost, deletePost, deleteAllPosts });
 
 const router = express.Router();
+router.use(logger);
 
 // Routing Middleware
-import { apiAuth } from '../../middleware/apiAuth.js';
+import { apiAuth } from '../../middleware/apiAuth.js'; // Used to verify/authorize api_key
 
 // Defining/Registering Routes
 router.post('/post', apiAuth, postController.addPost);
