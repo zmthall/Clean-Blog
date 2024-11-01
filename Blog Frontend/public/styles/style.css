@@ -71,6 +71,7 @@ body {
     width: max-content;
     transition: background 0.2s ease-in-out;
     margin: 0.1rem;
+    cursor: pointer;
 }
 
 .primary-button:hover {

@@ -1,5 +1,6 @@
 import express from 'express';
 import axios from 'axios';
+import { Presentation } from '../utility/presentation.js';
 
 const router = express.Router();
 
@@ -17,11 +18,10 @@ router.get('/blog', async (req, res) => {
         }
     })).data;
 
-    console.log(posts.data);
-
     res.status(200).render('blog', {
         layout: 'layouts/main-layout.ejs',
-        posts: posts.data
+        posts: posts.data,
+        presentation: Presentation
     })
 });
 
