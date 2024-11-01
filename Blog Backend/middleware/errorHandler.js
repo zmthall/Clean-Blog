@@ -1,4 +1,4 @@
-import { ControllerError } from "../Blog Backend/utility/error.js";
+import { ControllerError } from "../utility/error.js";
 
 export function errorHandler(err, req, res, next) {
     console.error(err.message); // Log the error for debugging

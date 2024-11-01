@@ -1,5 +1,5 @@
 import express from 'express';
-import { logger } from '../../middleware/logger.js';
+import { logger } from '../middleware/logger.js';
 
 // infrastructure layer
 import { postRepository } from '../frameworks/repositories/inMemoryPostRepo.js';
@@ -27,8 +27,8 @@ const postController = makePostController({ addPost, getPost, getAllPosts, editP
 const router = express.Router();
 
 // Routing Middleware
-import { apiAuth } from '../../middleware/apiAuth.js'; // Used to verify/authorize api_key
-import apiLimiter from '../../middleware/apiLimit.js';
+import { apiAuth } from '../middleware/apiAuth.js'; // Used to verify/authorize api_key
+import apiLimiter from '../middleware/apiLimit.js';
 
 router.use(logger);
 router.use(apiLimiter);

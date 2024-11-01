@@ -1,7 +1,7 @@
 import express from 'express';
 import router from './routes/postRoutes.js';
 import 'dotenv/config';
-import { errorHandler } from '../middleware/errorHandler.js';
+import { errorHandler } from './middleware/errorHandler.js';
 
 // Setting up express framework
 const app = express();

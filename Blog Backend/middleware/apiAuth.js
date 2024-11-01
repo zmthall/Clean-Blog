@@ -1,4 +1,4 @@
-import { ControllerError } from "../Blog Backend/utility/error.js";
+import { ControllerError } from "../utility/error.js";
 
 export function apiAuth(req, res, next) {
     const { api_key } = req.headers;
