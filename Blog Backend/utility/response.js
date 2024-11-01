@@ -8,6 +8,7 @@ export function successResponse(data) {
                 id: post.id,
                 title: post.title,
                 author: post.author,
+                creator: post.creator,
                 body: post.body,
                 date: post.date,
                 tags: post.tags || [] // defaults to empty array if undefined.
@@ -20,6 +21,7 @@ export function successResponse(data) {
                 id: data.id,
                 title: data.title,
                 author: data.author,
+                creator: data.creator,
                 body: data.body,
                 date: data.date,
                 tags: data.tags || [] // defaults to empty array if undefined.
