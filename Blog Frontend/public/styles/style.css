@@ -1,0 +1,99 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-background-color: 235, 235, 235;
+    --content-background-color: 245, 245, 245;
+    --shadow-color: 100, 100, 100;
+    --underline-color: 115, 115, 115, 0.3;
+}
+
+body {
+    background: rgba(var(--body-background-color));
+}
+
+.main-page-content {
+    max-width: 750px;
+    margin: 3rem auto;
+    background: rgba(var(--content-background-color));
+    padding: 2.5rem;
+    box-shadow: 0 5px 10px 5px rgba(var(--shadow-color), 0.1);
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.page-title-wrapper {
+    position: relative;
+}
+
+.page-title-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(var(--underline-color));
+    bottom: 0;
+    left: 0;
+}
+
+.page-subtitle {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.page-text {
+    font-size: 1.25rem;
+}
+
+.page-text:not(:last-of-type),
+.page-content-wrapper:not(:last-of-type) {
+    margin-bottom: 1rem;
+}
+
+.primary-button {
+    border: 1px solid transparent;
+    text-decoration: none;
+    color: white;
+    background: rgb(42, 140, 226);
+    padding: 0.5rem 2rem;
+    display: block;
+    width: max-content;
+    transition: background 0.2s ease-in-out;
+    margin: 0.1rem;
+}
+
+.primary-button:hover {
+    background: rgb(42, 120, 200);
+    border: 1px solid;
+}
+
+.primary-button.home-page {
+    margin: 1rem auto 0 auto;
+}
+
+.delete-button {
+
+}
+
+.delete-button:hover {
+
+}
+
+.create-button {
+
+}
+
+.create-button:hover {
+    
+}
