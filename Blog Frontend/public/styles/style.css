@@ -4,6 +4,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font: inherit;
+}
+
+h1, h2, h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
 }
 
 :root {
@@ -42,7 +48,7 @@ body {
     position: absolute;
     width: 100%;
     height: 2px;
-    background: rgba(var(--underline-color));
+    background: black;
     bottom: 0;
     left: 0;
 }
@@ -83,18 +89,120 @@ body {
     margin: 1rem auto 0 auto;
 }
 
-.delete-button {
+.cta-button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: white;
+    background: rgb(38, 177, 38);
+    border: 1px solid transparent;
+    text-decoration: none;
+    /* display: block; */
+    transition: background 0.2s ease-in-out;
+    cursor: pointer;
+    
+}
 
+.cta-button:hover {
+    background: rgb(38, 150, 20);
+    border: 1px solid;
+}
+
+.delete-button {
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+    color: white;
+    background: rgb(191, 44, 44);
+    border: 1px solid transparent;
+    text-decoration: none;
+    display: block;
+    transition: background 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .delete-button:hover {
-
+    border: 1px solid;
+    background: rgb(175, 20, 20);
 }
 
-.create-button {
-
+.blog-button {
+    padding: 0.5rem 0.5rem;
+    height: max-content;
 }
 
-.create-button:hover {
-    
+.post-button-wrapper {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.post-author,
+.post-date {
+    color: grey;
+    font-size: 0.9rem;
+}
+
+.post-body {
+    margin: 0.75rem 0;
+}
+
+.post-date,
+.post-tag {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.post-tag {
+    font-weight: 900;
+    font-size: 1.25rem;
+}
+
+.blog-post-container {
+    margin: 1rem 0;
+}
+
+.blog-post-container:not(:last-of-type) {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(var(--underline-color));
+}
+
+.create-post-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.create-post-form-wrapper textarea {
+    resize: none;
+}
+
+.create-post-form-wrapper input,
+.create-post-form-wrapper textarea {
+    padding: 0.25rem;
+    font-size: 1.25rem;
+}
+
+nav.home-page {
+    width: 150px;
+    position: fixed;
+    left: 0;
+    top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 0.5rem;
+    box-shadow: 0 5px 10px 5px rgba(var(--shadow-color), 0.1);
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.nav-button {
+    color: blue;
+    text-decoration: none;
+}
+
+.nav-button:hover {
+    text-decoration: underline;
 }

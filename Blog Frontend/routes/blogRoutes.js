@@ -25,4 +25,16 @@ router.get('/blog', async (req, res) => {
     })
 });
 
+router.get('/create-post', (req, res) => {
+    res.status(200).render('create', {
+        layout: 'layouts/main-layout.ejs'
+    })
+})
+
+router.get('/edit-post', (req, res) => {
+    res.status(200).render('edit', {
+        layout: 'layouts/main-layout.ejs'
+    })
+})
+
 export default router;
