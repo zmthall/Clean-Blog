@@ -1,0 +1,19 @@
+<section class="page-section blog-post">
+    <div class="blog-post-container" id="<%- post.id %>">
+        <h2 class="post-title"><%- post.title %></h2>
+        <span class="post-author">By: <%- post.author %></span>
+        <p class="post-body"><%- post.body %></p>
+        <span class="post-date"><%- presentation.date(post.date) %></span>
+        <% if(post.tags.length > 0) { %>
+            <div class="tag-wrapper">
+                <% for(const idx in post.tags) { %>
+                    <span class="post-tag"><%- post.tags[idx] %></span>
+                <% } %>
+            </div>
+        <% } %>
+        <div class="post-button-wrapper">
+            <a href="/edit-post" class="edit-button primary-button blog-button" data-post-id="<%- post.id %>" data-edit-btn>Edit</a>
+            <button type="button" class="delete-button blog-button" data-post-id="<%- post.id %>" data-delete-btn>Delete</button>
+        </div>
+    </div>
+</section>

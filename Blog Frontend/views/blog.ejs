@@ -7,7 +7,7 @@
     </div>
     <% for(const post of posts) { %>
         <div class="blog-post-container" id="<%- post.id %>">
-            <h2 class="post-title"><%- post.title %></h2>
+            <h2 class="post-title"><a href="/post/<%- post.id %>"><%- post.title %></a></h2>
             <span class="post-author">By: <%- post.author %></span>
             <p class="post-body"><%- post.body %></p>
             <span class="post-date"><%- presentation.date(post.date) %></span>

@@ -206,3 +206,12 @@ nav.home-page {
 .nav-button:hover {
     text-decoration: underline;
 }
+
+.post-title a {
+    color: black;
+    text-decoration: none;
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+}
