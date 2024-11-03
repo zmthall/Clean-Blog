@@ -2,12 +2,14 @@
     <div class="page-title-wrapper">
         <h1 class="page-title">Edit Post</h1>
     </div>
-    <form>
+    <form id="edit_post">
         <div class="create-post-form-wrapper">
-            <input type="text" name="title" id="title" placeholder="Title">
-            <textarea type="text" name="body" id="body" placeholder="Content" rows="10"></textarea>
-            <input type="text" name="author" id="author" placeholder="Author">
+            <input type="text" name="title" id="title" value="<%- post.title %>">
+            <textarea type="text" name="body" id="body" rows="10"><%- post.body %></textarea>
+            <input type="text" name="author" id="author" value="<%- post.author %>">
+            <input type="hidden" name="postID" id="postID" value="<%- post.id %>">
             <button type="submit" class="primary-button create-post-page">Update Post</button>
         </div>
     </form>
+    <script src="/scripts/editPost.js"></script> 
 </section>

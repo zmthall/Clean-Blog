@@ -13,5 +13,15 @@ export const Presentation = {
 
         const date = new Date(data);
         return date.toLocaleString('en-US', options);
+    },
+    limitContent(content, length) {
+        if(content.length > 150) {
+            const newContent = content.slice(0, length);
+            if(newContent[newContent.length - 1] === ' ') {
+                return newContent.slice(0, length - 1) + '...';
+            } else {
+                return newContent + '...';
+            }
+        }
     }
 }

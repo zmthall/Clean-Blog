@@ -1,7 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
-import pageRoutes from './routes/pageRoutes.js';
 import reqRoutes from './routes/reqRoutes.js';
+import pageRoutes from './routes/pageRoutes.js';
 import partials from 'express-partials';
 import path from 'path';
 
@@ -17,8 +17,8 @@ app.use(express.static(path.join(process.cwd(), 'Blog Frontend/public')));
 app.use(partials()); // partials for layouts
 app.use(express.json()); // JSON parser
 app.use(express.urlencoded({ extended: false })); // request data parser
-app.use(pageRoutes); // blog page router
 app.use(reqRoutes); // blog operation routes for creating, editing, and deleting
+app.use(pageRoutes); // blog page router
 
 app.listen(port, (req, res) => {
     console.log(`Listening on port: ${port}`);

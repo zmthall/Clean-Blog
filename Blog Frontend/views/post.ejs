@@ -12,8 +12,9 @@
             </div>
         <% } %>
         <div class="post-button-wrapper">
-            <a href="/edit-post" class="edit-button primary-button blog-button" data-post-id="<%- post.id %>" data-edit-btn>Edit</a>
+            <a href="/edit-post/<%- post.id %>" class="edit-button primary-button blog-button" data-post-id="<%- post.id %>" data-edit-btn>Edit</a>
             <button type="button" class="delete-button blog-button" data-post-id="<%- post.id %>" data-delete-btn>Delete</button>
         </div>
     </div>
+    <script src="/scripts/deletePost.js"></script>
 </section>
